@@ -98,9 +98,15 @@
         // console.log(e);
         // console.log(e.target);
         // console.log(e.target.parentNode);
-        
-        let remove_it=e.target.parentNode;
-        remove_it.remove();
+
+        console.log(e.target.tagName);
+        if(e.target.tagName=='IMG'){
+            console.log(e.target.id);
+            let remove_it=e.target.parentNode;
+            remove_it.remove();
+        }
+        // let remove_it=e.target.parentNode;
+        // remove_it.remove();
         // remove_it.parentNode.removeChild(remove_it);
     })
 
