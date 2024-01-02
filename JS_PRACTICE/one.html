@@ -26,12 +26,83 @@
     //  1. mouseover and mouseout
     //  2. focus and blur
 
-    document.getElementById('owl').onclick = function(){
-        alert("owl  Clicked");
-    }
+    // document.getElementById('owl').onclick = function(){
+    //     alert("owl  Clicked");
+    // }
 
     //  this  method is nice but not recomended we should be using the  addEventListener()  method
     // Event listiners not only allow us to add multiple events to a single element, but we can also add many event handlers to the same event. they provide propegation of events
+
+    // document.getElementById('owl').addEventListener('click',(e)=>{
+    //     // alert("owl clicked using addEventListener");
+    //     console.log(e);
+    // },false);
+
+    // the last parameter is optional and is set to false by default. if set to true, the event handler is executed in the capturing phase. if set to false, the event handler is executed in the bubbling phase.
+
+    //  AttachEvent() listiner is used for IE8 and earlier versions in internet explorer
+    // jQuery  provides a method called  on()  to attach event handlers to elements. it is similar to the addEventListener() method, but it is not a part of the DOM specification. it is a part of the jQuery library.
+
+    //  Some of the most commonly used event are:
+    //  Type, timestamp, defaultPrevented, target, toElement, sourceElement,
+    //  clientX, clientY, screenX, screenY, altKey, ctrlKey, shiftKey, metaKey,
+    // altkey,  ctrlkey, shiftkey, keycode
+
+
+    //  Event Propegation
+    //  Event propegation is a way of defining the element order when an event occurs. if you have a <p> element inside a <div> element, and the user clicks on the <p> element, which element's "click" event should be handled first?
+    
+
+    // document.getElementById('images').addEventListener('click',()=>{
+    //     console.log("images clicked insode the ul");
+    //     //  for the false attribute the the execution order is from the innermost element to the outermost element
+    // },false)
+    // document.getElementById('owl').addEventListener('click',()=>{
+    //     console.log("owl clicked");
+    //     //  for the false attribute the the execution order is from the innermost element to the outermost element
+    // },false)
+
+
+    // document.getElementById('images').addEventListener('click',()=>{
+    //     console.log("images clicked insode the ul");
+    //     //  for the true attribute the the execution order is from the outermost element to the innermost element
+    // },true)
+    // document.getElementById('owl').addEventListener('click',()=>{
+    //     console.log("owl clicked");
+    //     //  for the true attribute the the execution order is from the outermost element to the innermost element
+    // },true)
+
+
+
+    // document.getElementById('images').addEventListener('click',()=>{
+    //     console.log("images clicked insode the ul");
+    //     //  for the true attribute the the execution order is from the outermost element to the innermost element
+    // },false)
+    // document.getElementById('owl').addEventListener('click',function(e){
+    //     console.log("owl clicked");
+    //     //  for the true attribute the the execution order is from the outermost element to the innermost element
+    //     e.stopPropagation();
+    // },false)
+    // //  try with one false and one true attribute 
+
+    // document.getElementById('google').addEventListener('click',(e)=>{
+    //     console.log("google clicked");
+    //     e.stopPropagation();
+    //     e.preventDefault();
+    // })
+
+
+    //   removing images with the click
+    document.querySelector('#images').addEventListener
+    ('click',(e)=>{
+        // console.log(e);
+        // console.log(e.target);
+        // console.log(e.target.parentNode);
+        
+        let remove_it=e.target.parentNode;
+        remove_it.remove();
+        // remove_it.parentNode.removeChild(remove_it);
+    })
 
 </script>
 
