@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JAVA SCRIPT PRACTICE</h1>
+    <button id="stop">Stop Time out</button>
+    <h2 style="text-align: center;">what we are practicing</h2>
+</body>
+<script>
+    setTimeout(
+        ()=>{
+           console.log("Hello"); 
+        },2000
+        //  this   function  states  that  after  2  seconds  the  function  will  be  executed
+        // where as in setInterval() the function will be executed after every 2 seconds
+    );
+
+    let change_text = () => {
+        document.querySelector('h2').innerHTML="we are implementing setTimeout() and setInterval() functions"
+    }
+
+    let myVar = () => {
+        console.log("Hello");
+    }
+
+    let  change = setTimeout(change_text,2000);
+
+    setTimeout(myVar,2000);
+
+    let date=new Date();
+        k=date.toLocaleTimeString();
+        console.log(k);
+    // clearTimeout(change); // this function will clear the setTimeout() function
+    //  we can set this time  out to any event like click, mouseover, mouseout etc
+
+    document.querySelector('#stop').addEventListener('click',()=>{
+        clearTimeout(change);
+        console.log("timeout Stoppped")
+        // let date=new Date();
+        // k=date.toLocaleTimeString();
+        console.log(k);
+    });
+    
+</script>
+</html>

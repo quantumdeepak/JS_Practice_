@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <H1>Practicing Java Script</H1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    
+</body>
+<script>
+    let var_fun = (str) => {
+        console.log(str,Date.now());
+    }
+    // setInterval(() => {
+    //     console.log("Hello",Date.now());
+    // }, 1000);
+
+    // let fun_id = setInterval(var_fun,1000,"Hello");
+
+    let fun_id;
+    document.querySelector('#start').addEventListener('click' ,()=>{
+        fun_id= setInterval(var_fun,1000,"Hello");
+        console.log("started");
+    })
+
+    document.querySelector('#stop').addEventListener('click' ,()=>{
+        clearInterval(fun_id);
+        console.log("stopped");
+    })
+
+    // clearInterval(fun_id);
+</script>
+</html>
