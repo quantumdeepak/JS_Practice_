@@ -1,0 +1,62 @@
+<!--  XML HTTP Requests -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color:  #fff;">
+    <img src="" alt="" id="id_1">
+    <BR></BR>
+    Value	State	Description
+    <hr>
+0	UNSENT	Client has been created. open() not called yet.
+<br>
+1	OPENED	open() has been called.
+<br>
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+<br>
+3	LOADING	Downloading; responseText holds partial data.
+<br>
+4	DONE	The operation is complete.
+<br>
+</body>
+
+<SCript>
+    const var1 = new XMLHttpRequest();
+    let url_1='https://api.github.com/users/quantumdeepak';
+    let avtar;
+    var1.open('GET',url_1,true);
+    var1.onreadystatechange = function()     //  will moniter the ready state continously
+    {
+        console.log(var1.readyState);
+        if(var1.readyState == 4)
+        {
+            console.log(this.responseText);
+            //  console.log(var1.responseText);
+            //  console.log(var1.status);   // 200 means OK
+            data=this.responseText;
+            // console.log(data.fallowers);  //  will give error as data is string
+            console.log(typeof(data));
+            data=JSON.parse(data);
+            console.log(typeof(data));
+            console.log(data.followers);
+            console.log(data.avatar_url);
+            avtar=data.avatar_url;
+            k=document.getElementById('id_1');
+            k.src=avtar;
+            k.style.width="70%";
+        }
+        else
+        {
+            console.log("Some error occured");
+        }
+    }
+    // console.log(var1.readyState);
+    var1.send();
+
+</SCript>
+
+</html>
